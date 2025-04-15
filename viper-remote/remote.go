@@ -9,7 +9,7 @@ import (
 	"sync"
 
 	crypt "github.com/bketelsen/crypt/config"
-	"github.com/shima-park/agollo"
+	"github.com/chunhui2001/agollo"
 	"github.com/spf13/viper"
 )
 

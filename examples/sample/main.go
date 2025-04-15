@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/shima-park/agollo"
+	"github.com/chunhui2001/agollo"
 )
 
 func main() {

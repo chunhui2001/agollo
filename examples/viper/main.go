@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	remote "github.com/shima-park/agollo/viper-remote"
+	remote "github.com/chunhui2001/agollo/viper-remote"
 	"github.com/spf13/viper"
 )
 

@@ -1,11 +1,3 @@
-module github.com/chunhui2001/agollo
+module github.com/philchia/agollo/v4
 
-go 1.13
-
-require (
-	github.com/bketelsen/crypt v0.0.4
-	github.com/magiconair/properties v1.8.5
-	github.com/spf13/viper v1.8.1
-	github.com/stretchr/testify v1.7.0
-	gopkg.in/go-playground/assert.v1 v1.2.1
-)
+go 1.14

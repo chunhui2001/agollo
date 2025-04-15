@@ -1,40 +1,29 @@
 package agollo
 
 import (
-	"fmt"
-	"io"
-	"io/ioutil"
+	"log"
+	"os"
 )
 
 type Logger interface {
-	Log(kvs ...interface{})
+	Infof(format string, args ...interface{})
+	Errorf(format string, args ...interface{})
 }
 
-type LoggerOption func(*logger)
-
-func LoggerWriter(w io.Writer) LoggerOption {
-	return func(l *logger) {
-		l.w = w
+func newLogger() Logger {
+	return &logger{
+		log: log.New(os.Stdout, "[agollo] ", log.LstdFlags),
 	}
-}
-
-func NewLogger(opts ...LoggerOption) Logger {
-	l := &logger{}
-	for _, opt := range opts {
-		opt(l)
-	}
-
-	if l.w == nil {
-		l.w = ioutil.Discard
-	}
-
-	return l
 }
 
 type logger struct {
-	w io.Writer
+	log *log.Logger
 }
 
-func (l *logger) Log(kvs ...interface{}) {
-	fmt.Fprintln(l.w, kvs...)
+func (l *logger) Infof(format string, args ...interface{}) {
+	l.log.Printf("[INFO] "+format, args...)
+}
+
+func (l *logger) Errorf(format string, args ...interface{}) {
+	l.log.Printf("[ERROR] "+format, args...)
 }
